@@ -12,4 +12,6 @@ cp -r $dotc/i3 $dest
 
 #polybar
 cp -r $dotc/polybar $dest
-  
+
+#audioswap
+cp $HOME/audioswap.sh $dest  
