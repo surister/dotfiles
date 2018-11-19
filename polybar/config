@@ -30,12 +30,12 @@ alert = #bd2c40
 [bar/mybar]
 monitor = ${env:MONITOR:DP-2}
 
-width = 100%
+width = 50%
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
-fixed-center = false
+radius = 10.0
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -43,8 +43,8 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
-border-color = #00000000
+;border-size = 4
+;border-color = #00FFFF
 
 padding-left = 0
 padding-right = 2
@@ -58,10 +58,11 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-
+modules-right = filesystem alsa pulseaudio xkeyboard memory cpu eth temperature date
 tray-position = right
 tray-padding = 2
+dim-value = 1.0
+pseudo-transparency = true
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -253,7 +254,7 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
+;fiormat-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
@@ -312,7 +313,7 @@ format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-bar-volume-width = 10
+bar-volume-width = 100
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
