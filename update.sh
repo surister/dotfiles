@@ -14,4 +14,7 @@ cp -r $dotc/i3 $dest
 cp -r $dotc/polybar $dest
 
 #audioswap
-cp $HOME/audioswap.sh $dest  
+cp $HOME/audioswap.sh $dest 
+
+# bot commands. (ssh)
+ 
