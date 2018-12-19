@@ -21,8 +21,8 @@ exec_always --no-startup-id "feh --bg-fill $HOME/Pictures/bg.jpg"
 #Custom: second-screen
 exec_always --no-startup-id "xrandr --output HDMI2 --auto --right-of DP-2"
 #Custom: change audio output
-bindsym $mod+F10 exec --no-startup-id bash $HOME/audioswap.sh 0
-bindsym $mod+F9 exec --no-startup-id bash $HOME/audioswap.sh 1
+bindsym $mod+F10 exec --no-startup-id bash $HOME/scripts/audioswap.sh 2
+bindsym $mod+F9 exec --no-startup-id bash $HOME/scripts/audioswap.sh 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

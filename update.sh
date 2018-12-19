@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 dest=$HOME/dotfiles # Destination path
 dotc=$HOME/.config  # Source path, in this case, /.config
@@ -13,8 +13,8 @@ cp -r $dotc/i3 $dest
 #polybar
 cp -r $dotc/polybar $dest
 
-#audioswap
-cp $HOME/audioswap.sh $dest 
+# scripts
+cp -r $HOME/scripts $dest 
 
 # bot commands. (ssh)
- 
+
