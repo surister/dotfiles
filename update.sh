@@ -16,5 +16,9 @@ cp -r $dotc/polybar $dest
 # scripts
 cp -r $HOME/scripts $dest 
 
+# zsh
+cp $HOME/.zshrc $dest
+
+
 # bot commands. (ssh)
 

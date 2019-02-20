@@ -16,10 +16,10 @@ gaps outer 10
 exec_always --no-startup-id bash $HOME/.config/custom-compton/launch.sh
 
 #Custom: background
-exec_always --no-startup-id "feh --bg-fill $HOME/Pictures/bg.jpg"
+exec_always --no-startup-id "feh --bg-fill $HOME/Pictures/backgrounds/back2.jpg"
 
 #Custom: second-screen
-exec_always --no-startup-id "xrandr --output HDMI2 --auto --right-of DP-2"
+exec_always --no-startup-id "xrandr --output HDMI-1-1 --auto --right-of DP-2"
 
 #Custom: change audio output
 bindsym $mod+F11 exec --no-startup-id bash $HOME/scripts/audioswap.sh 0
