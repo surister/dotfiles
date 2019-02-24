@@ -16,8 +16,13 @@ gaps outer 10
 exec_always --no-startup-id bash $HOME/.config/custom-compton/launch.sh
 
 #Custom: background
-exec_always --no-startup-id "feh --bg-fill $HOME/Pictures/backgrounds/back2.jpg"
+exec_always --no-startup-id "feh --bg-fill $HOME/.backgrounds/back2.jpg"
 
+#Custom: change-background
+bindsym $mod+F5 exec --no-startup-id "bash $HOME/scripts/changebg.sh 1"
+bindsym $mod+F6 exec --no-startup-id "bash $HOME/scripts/changebg.sh 2"
+bindsym $mod+F3 exec --no-startup-id "bash $HOME/scripts/changebg.sh 3"
+bindsym $mod+F4 exec --no-startup-id "bash $HOME/scripts/changebg.sh 4"
 #Custom: second-screen
 exec_always --no-startup-id "xrandr --output HDMI-1-1 --auto --right-of DP-2"
 
@@ -207,8 +212,6 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 # floating windows
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Kalu"] floating enable
-
 
 # Multimedia Keys
 
@@ -238,11 +241,8 @@ bindsym XF86AudioPrev exec mocp --previous
 bindsym $mod+w exec "/usr/bin/firefox"
 bindsym $mod+z exec "/usr/bin/nautilus"
 
-# Redirect sound to headphones
-bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
-
 # Autostart apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id "nitrogen --restore"
-exec --no-startup-id "sleep 5s && kalu"
+
