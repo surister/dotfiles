@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/env bash 
 
 pacmd set-default-sink $1
 pacmd list-sink-inputs | grep index | while read line

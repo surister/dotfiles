@@ -1,3 +1,4 @@
+#!/bin/ env bash
 read var
 
 if [ "$var" = "0" ]

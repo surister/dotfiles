@@ -57,8 +57,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3 xwindow
-modules-center = 
-modules-right = filesystem pulseaudio xkeyboard memory cpu temperature date
+modules-center = date 
+modules-right = filesystem pulseaudio xkeyboard memory cpu temperature
 tray-position = right
 tray-padding = 2
 dim-value = 1.0
