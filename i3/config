@@ -16,7 +16,7 @@ gaps outer 10
 exec_always --no-startup-id bash $HOME/.config/custom-compton/launch.sh
 
 #Custom: background
-exec_always --no-startup-id "feh --bg-fill $HOME/.backgrounds/back2.jpg"
+exec_always --no-startup-id "feh --bg-fill $HOME/.backgrounds/back2"
 
 #Custom: change-background
 bindsym $mod+F5 exec --no-startup-id "bash $HOME/scripts/changebg.sh 1"
