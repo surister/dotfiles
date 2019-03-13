@@ -18,10 +18,10 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background =  #00000000 
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #ccffffff
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -30,13 +30,13 @@ alert = #bd2c40
 [bar/mybar]
 monitor = ${env:MONITOR:DP-2}
 
-width = 50%
-height = 27
+width = 100%
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 10.0
-fixed-center = true
-
+radius = 0.0
+fixed-center = false
+spacing = 2
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -46,19 +46,21 @@ line-color = #f00
 ;border-size = 4
 ;border-color = #00FFFF
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 0
+module-margin-left = 3
+module-margin-right = 1
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = NotoSans-Regular:size=8;-1
+font-1 = MaterialIcons:size=10;0
+font-2 = Termsynu:size=8:antialias=false;-2
+font-3 = FontAwesome:size=10;0
 
-modules-left = bspwm i3 xwindow
-modules-center = date 
-modules-right = filesystem pulseaudio xkeyboard memory cpu temperature
+
+modules-left = xwindow mpd 
+modules-right = volume filesystem pulseaudio xkeyboard memory cpu temperature date
+
 tray-position = right
 tray-padding = 2
 dim-value = 1.0
@@ -84,25 +86,38 @@ cursor-scroll = ns-resize
 type = internal/xwindow
 label = %title:0:30:...%
 
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix-underline = ${colors.secondary}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+;label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
-
 [module/filesystem]
-
 type = internal/fs
 interval = 25
 
@@ -178,19 +193,32 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 ; Separator in between workspaces
 ; label-separator = |
 
-
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+toggle-on-foreground =
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -217,9 +245,9 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+;format-prefix = " "
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #f90000
 label = CPU %percentage%% 
 ; Spacing between individual per-core ramps
 ramp-coreload-spacing = 1
@@ -236,8 +264,8 @@ ramp-coreload-7 = █
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #4bffdc
 label = RAM %percentage_used%%
 
 [module/wlan]
@@ -285,12 +313,12 @@ interval = 1
 date =
 ;date-alt = " %Y-%m-%d"
 
-time =   %m-%d %H:%M:%S 
+time =  %y-%m-%d | %H:%M:%S 
 ;time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+;format-prefix = 
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #0a6cf5
 
 label =  %time%
 
@@ -388,18 +416,18 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = #00000000
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+;label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-2 = i
+;ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -419,7 +447,6 @@ menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
-
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
