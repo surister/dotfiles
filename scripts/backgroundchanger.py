@@ -3,8 +3,8 @@ from subprocess import run
 import time
 import random
 
-HOMEPATH = Path(__file__).home()
-BACKGROUNPATH = f'{HOMEPATH}/.backgrounds/back'
+#HOMEPATH = Path(__file__).home()
+BACKGROUNPATH = f'/home/surister/.backgrounds/back'
 
 """
 Changes background depending on what day range we are. Every range has a different set of
