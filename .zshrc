@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/surister/.oh-my-zsh"
 
+export PATH=$PATH:/home/surister/scripts/
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history time ssh status)
 
