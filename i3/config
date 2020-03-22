@@ -28,9 +28,9 @@ exec_always --no-startup-id "bash $HOME/scripts/screen.sh"
 #Custom mouse speed
 exec_always --no-startup-id "bash $HOME/scripts/mouse.sh"
 #Custom: change audio output
-bindsym $mod+F11 exec --no-startup-id bash $HOME/scripts/audioswap.sh 0
+bindsym $mod+F11 exec --no-startup-id bash $HOME/scripts/audioswap.sh 2
 bindsym $mod+F10 exec --no-startup-id bash $HOME/scripts/audioswap.sh 1
-bindsym $mod+F9 exec --no-startup-id bash $HOME/scripts/audioswap.sh 78
+bindsym $mod+F9 exec --no-startup-id bash $HOME/scripts/audioswap.sh 0
 
 #Custom: Change audio volume
 bindsym $mod+F8 exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -190,6 +190,8 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # finds out, if available)
 bar {
 	position top	
+	output DP-3
+	output DP-1
 	output DP-2
 	status_command i3status --config ~/.i3status.conf
 	font pango:fira code 9
