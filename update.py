@@ -18,6 +18,7 @@ DIRS_TO_BE_SAVED = {
     'i3statusconf': HOME_DIR / '.i3status.conf',
     'zshrc': HOME_DIR / '.zshrc',
     'scripts': HOME_DIR / 'scripts',
+    'screenlayout': HOME_DIR / '.screenlayout'
 }
 
 
