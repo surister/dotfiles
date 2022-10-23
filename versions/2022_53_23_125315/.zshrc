@@ -1,26 +1,6 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/home/surister/.oh-my-zsh"
 
 export PATH=$PATH:/home/surister/scripts/
-export PATH=$PATH:/home/surister/scripts/drive/
-export PATH=$PATH:/home/surister/.local/bin/
-
-export PATH=$PATH:/home/surister/flutter/bin/
-export PATH=$PATH:/home/surister/flutter2/flutter/bin/
-export PATH=$PATH:/home/surister/.gradle
-
-export PATH=$PATH:/home/surister/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/193.6626763/plugins/gradle/lib
-
-export JAVA_HOME=/usr/lib/jvm/default
-
-
-export PATH=$PATH:/home/surister/Android/Sdk
-
-export ANDROID_SDK_ROOT=/home/surister/Android/Sdk/
-
-export PATH=$PATH:/home/surister/Android/Sdk/platform-tools:/home/surister/Android/Sdk/tools
-
-export CHROME_EXECUTABLE=/usr/bin/chromium
+export PATH="/home/surister/.local/bin:$PATH"
 
 alias cat='bat --theme=ansi'
 
@@ -60,6 +40,4 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="┗❯ "
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme

@@ -4,25 +4,21 @@
 set $mod Mod1
 set $ctrl control
 
-#Custom: polybar
-exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh
+exec "setxkbmap -layout es"
+
 for_window [class="^.*"] border pixel 1
 
 #Custom gaps
 gaps inner 25
 gaps outer 10
 
-#Custom: compton
-#exec_always --no-startup-id bash $HOME/.config/custom-compton/launch.sh
-#Custom: nitrogen wallpaper
-exec_always --no-startup-id "nitrogen --restore"
 #Custom: Three screens
 # Se cambia el script de screens.sh por el generado por arand
 #exec_always --no-startup-id "bash $HOME/scripts/screens.sh"
-exec_always --no-startup-id "bash $HOME/.screenlayout/main.sh"
+exec_always --no-startup-id "bash $HOME/.screenlayout/screenlayout.sh"
 
 #Custom: background
-#exec_always --no-startup-id "feh --bg-fill $HOME/.backgrounds/bg1.jpeg"
+exec_always --no-startup-id "feh --bg-fill $HOME/.backgrounds/bg1.jpg"
 
 #Custom: change-background
 bindsym $mod+F5 exec --no-startup-id "bash $HOME/scripts/changebg.sh 1"
@@ -42,23 +38,18 @@ bindsym $mod+F8 exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym $mod+F7 exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font fira code 9
+font fira code 10 
 
 # thin borders
 hide_edge_borders both
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec "alacritty --working-directory $HOME"
+bindsym $mod+t exec xterm
 #bindsym $mod+Shift+Return exec gnome-terminal
 #Custom: Screenshot to clipboard
 bindsym --release $ctrl+a exec --no-startup-id $HOME/scripts/take_screenshot.sh
@@ -144,7 +135,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+t exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock
 bindsym $mod+Shift+x exec i3lock --color 475263
@@ -195,9 +186,9 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # finds out, if available)
 bar {
 	position bottom
-	output DP-1
+	output DP-4
 	status_command i3status --config ~/.i3status.conf
-	font pango:fira code 9
+	font pango:fira code 10
       
 	colors {
 	
@@ -210,22 +201,6 @@ bar {
 	}
 }
 
-bar {
-	position top	
-	output DP-2
-	status_command i3status --config ~/.i3status.conf
-	font pango:fira code 12
-      
-	colors {
-	
-	background #4e4745
-	separator #757575
-		#                  border             background         text
-		focused_workspace  #4e4745            #4e4745            $text-color
-		inactive_workspace #4e4745            #4e4745            $inactive-text-color
-		urgent_workspace   #4e4745            #4e4745            $text-color
-	}
-}
 # floating windows
 for_window [class="Pavucontrol"] floating enable
 
@@ -257,9 +232,6 @@ bindsym XF86AudioPrev exec mocp --previous
 bindsym $mod+w exec "/usr/bin/firefox"
 bindsym $mod+z exec "/usr/bin/nautilus"
 
-# Autostart apps
-
-exec --no-startup-id nm-applet
 
 
 
