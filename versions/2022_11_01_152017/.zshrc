@@ -1,6 +1,8 @@
 
 export PATH=$PATH:/home/surister/scripts/
 export PATH="/home/surister/.local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export GPG_TTY=$(tty)
 
 alias cat='bat --theme=ansi'
 

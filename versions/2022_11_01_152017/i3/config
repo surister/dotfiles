@@ -15,7 +15,7 @@ gaps outer 10
 #Custom: Three screens
 # Se cambia el script de screens.sh por el generado por arand
 #exec_always --no-startup-id "bash $HOME/scripts/screens.sh"
-exec_always --no-startup-id "bash $HOME/.screenlayout/screenlayout.sh"
+exec_always --no-startup-id "python $HOME/scripts/screenlayout.py"
 
 #Custom: background
 exec_always --no-startup-id "feh --bg-fill $HOME/.backgrounds/bg1.jpg"
