@@ -31,7 +31,7 @@ def create_new_version_directory(datetime_: datetime = None) -> pathlib.Path:
     """
     used_datetime = datetime_ or datetime.datetime.now()
 
-    new_version_name = (DOTFILES_PROJECT_DIR / VERSIONS_DIRECTORY / used_datetime.strftime('%Y_%M_%d_%H%M%S'))
+    new_version_name = (DOTFILES_PROJECT_DIR / VERSIONS_DIRECTORY / used_datetime.strftime('%Y_%m_%d_%H%M%S'))
     new_version_name.mkdir()
 
     return new_version_name
